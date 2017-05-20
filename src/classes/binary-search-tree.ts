@@ -2,18 +2,6 @@
 export class BinarySearchTree {
   public root: BinarySearchNode;
 
-  //   public void print() {
-  //     print("", this, false);
-  // }
-
-  // public void print(String prefix, TreeNode n, boolean isLeft) {
-  //     if (n != null) {
-  //         System.out.println (prefix + (isLeft ? "|-- " : "\\-- ") + n.data);
-  //         print(prefix + (isLeft ? "|   " : "    "), n.left, true);
-  //         print(prefix + (isLeft ? "|   " : "    "), n.right, false);
-  //     }
-  // }
-
   public print(prefix: string, root:BinarySearchNode, isLeft: boolean){
     if(root != null){
       console.log(prefix + (isLeft ? '|--' : '\\-- ') + root.value);
@@ -23,18 +11,14 @@ export class BinarySearchTree {
   }
 
   public getHeight(root: BinarySearchNode): number {
-    let rightHeight = 0;
-    let leftHeight = 0;
     if (!root.right && !root.left) {
       return 1;
     }
-    if (root.right) {
-      rightHeight = this.getHeight(root.right);
-    }
-    if (root.left) {
-      leftHeight = this.getHeight(root.left);
-    }
-    return 1 + Math.max(rightHeight, leftHeight);
+    return 1 + Math.max(root.right ? 
+                        this.getHeight(root.right) : 0, 
+                        root.left ? 
+                        this.getHeight(root.left): 0
+                        );
   }
 
   public findNode(root: BinarySearchNode, value: number): BinarySearchNode {
