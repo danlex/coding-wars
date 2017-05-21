@@ -62,6 +62,7 @@ export class BinarySearchTree {
 
   public insert(node: BinarySearchNode, value: number): BinarySearchNode {
     //If it's greater than, we insert the node on the right.
+   
     if (value > node.value && node.right === null) {
       node.right = {
         value: value,

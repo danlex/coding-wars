@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FizzBuzz } from "../classes/FizzBuzz";
 import { BinarySearchTree } from "classes/binary-search-tree";
+import { PrimeNumbers } from "classes/prime-numbers";
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ export class AppComponent {
     console.log('Searching for a node,.... value: 4', myTree.findNode(myTree.root, 4));
     console.log('Current Height: ', myTree.getHeight(myTree.root));
     console.log(myTree.print('', myTree.root,true));
+    console.log(PrimeNumbers.PrintPrimeNumbers(100));
     //FizzBuzz.run();
   }
 }
