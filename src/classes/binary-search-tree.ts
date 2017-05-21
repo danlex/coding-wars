@@ -1,4 +1,6 @@
 
+import { Queue } from "classes/queue";
+
 export class BinarySearchTree {
   public root: BinarySearchNode;
 
@@ -19,6 +21,18 @@ export class BinarySearchTree {
                         root.left ? 
                         this.getHeight(root.left): 0
                         );
+  }
+
+  public BreadthFirstSearch(root: BinarySearchNode): BinarySearchNode{
+    let treeNodesQueue = new Queue();
+    treeNodesQueue.enqueue(root)
+
+    while(!treeNodesQueue.isEmpty()){
+      let currentNode = treeNodesQueue.dequeue();
+      if(currentNode.)
+
+    }
+
   }
 
   public findNode(root: BinarySearchNode, value: number): BinarySearchNode {

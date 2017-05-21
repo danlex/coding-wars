@@ -4,7 +4,7 @@ export class Queue{
     public removeIndex: number = 0;
     private totalSize = 0;
 
-    public enqueue(value: number){
+    public enqueue(value: any){
         if(value){
             this.storage[this.insertIndex] = value;
             this.totalSize++;
@@ -18,7 +18,7 @@ export class Queue{
         }
     }
 
-    public dequeue(): number{
+    public dequeue(): any{
         if(this.insertIndex - this.removeIndex === 0){
             return undefined;
         }
@@ -34,7 +34,12 @@ export class Queue{
         return this.totalSize;
     }
 
+    public isEmpty(){
+        return this.totalSize === 0;
+    }
+
     public printQueue(){
+        console.log('Current State of Q - Size: ', this.size(), ' This.storage', this.storage);
         for (var i = 0; i < Object.keys( this.storage).length; i++) {
             let currentKey = Object.keys(this.storage)[i];
             console.log('Current Key: ', currentKey, 'Current Value: ', this.storage[currentKey]);
