@@ -1,10 +1,10 @@
-export class Queue{
+export class Queue<T>{
     public insertIndex:number = 0;
     public storage: Object = {};
     public removeIndex: number = 0;
     private totalSize = 0;
 
-    public enqueue(value: any){
+    public enqueue(value: T){
         if(value){
             this.storage[this.insertIndex] = value;
             this.totalSize++;
@@ -18,7 +18,7 @@ export class Queue{
         }
     }
 
-    public dequeue(): any{
+    public dequeue(): T{
         if(this.insertIndex - this.removeIndex === 0){
             return undefined;
         }

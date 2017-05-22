@@ -23,16 +23,24 @@ export class BinarySearchTree {
                         );
   }
 
-  public BreadthFirstSearch(root: BinarySearchNode): BinarySearchNode{
-    let treeNodesQueue = new Queue();
+  public BreadthFirstSearch(root: BinarySearchNode, value: number): BinarySearchNode{
+    let treeNodesQueue = new Queue<BinarySearchNode>();
     treeNodesQueue.enqueue(root)
 
     while(!treeNodesQueue.isEmpty()){
       let currentNode = treeNodesQueue.dequeue();
-      if(currentNode.)
+      if(currentNode.value === value){
+        return currentNode;
+      }
 
+      if(currentNode.left){
+        treeNodesQueue.enqueue(currentNode.left);
+      }
+      if(currentNode.right){
+        treeNodesQueue.enqueue(currentNode.right);
+      }
     }
-
+    return null;
   }
 
   public findNode(root: BinarySearchNode, value: number): BinarySearchNode {
