@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { FizzBuzz } from "../classes/FizzBuzz";
-import { BinarySearchTree } from "classes/binary-search-tree";
-import { PrimeNumbers } from "classes/prime-numbers";
+import { CocktailSort } from '../classes/cocktail-sort';
+import { RandomGenerator } from '../classes/random-generator';
+
 
 @Component({
   selector: 'app-root',
@@ -14,12 +14,9 @@ export class AppComponent {
 
   public Runner(): void {
     console.log('App Runner works.');
-    let myTree = new BinarySearchTree().BuildFromArray([1, 2, 3, 4, 5, 6, 7, 8, 9]);
-    myTree.printRootNode();
-    console.log('Searching for a node,.... value: 4', myTree.findNode(myTree.root, 4));
-    console.log('Current Height: ', myTree.getHeight(myTree.root));
-    console.log(myTree.print('', myTree.root,true));
-    console.log(PrimeNumbers.PrintPrimeNumbers(100));
-    //FizzBuzz.run();
+    let array = RandomGenerator.GenerateArray(10);
+    console.log(array);
+    CocktailSort.sort<number>(array);
+    console.log(array);
   }
 }

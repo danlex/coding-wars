@@ -1,43 +1,36 @@
 export class CocktailSort{
 
-    public static sort<T>(arrayForSorting: Array<T>){
+    public static sort<T>(array: Array<T>){
+        let found: boolean = true;
         let start: number = 0;
-        let end: number = arrayForSorting.length;
-        let swapped = true;
-
-        while(swapped)
-        {
-            swapped = false;
-            for (var i = start; i < end; i++) {
-                if(arrayForSorting[i] > arrayForSorting[i+1]){
-                    CocktailSort.swap(arrayForSorting,i,i+1);
-                    swapped = true;
-                }                
+        let end: number = array.length;
+        while(found) {
+            found = false;
+            for(let i = start; i <= end - 1; i++) {
+                if(array[i] > array[i + 1]) {
+                    CocktailSort.swap(array, i, i + 1);
+                    found = true;
+                }
             }
-
-            if(!swapped){
-                break; //here it's been sorted.
-            }
-
-            swapped = false;
-            end--;
-            for (var i = end-1; i >= start; i--) {
-                if(arrayForSorting[i] > arrayForSorting[i+1]){
-                    CocktailSort.swap(arrayForSorting,i+1,i); //swap the other direction; pushing the biggest item down.
-                    swapped = true;
-                }   
-            }
-
-            if(!swapped){
+            end --;
+            
+            if(!found) {
                 break;
             }
-            start++;
+            
+            for(let j = end - 1; j >= start; j --) {
+                if(array[j] > array[j + 1]) {
+                    CocktailSort.swap(array, j, j + 1);
+                    found = true;
+                }
+            }
+            start ++;
         }
-        return arrayForSorting;
     }
 
     public static swap<T>(array: Array<T>, firstIndex: number, secondIndex:number){
-        let temp = array[firstIndex];
+        let temp: T;
+        temp = array[firstIndex];
         array[firstIndex] = array[secondIndex];
         array[secondIndex] = temp;
     }
