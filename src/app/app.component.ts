@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { CocktailSort } from '../classes/cocktail-sort';
-import { RandomGenerator } from '../classes/random-generator';
+import { SufixTree } from '../classes/sufix-tree';
 
 
 @Component({
@@ -14,9 +13,10 @@ export class AppComponent {
 
   public Runner(): void {
     console.log('App Runner works.');
-    let array = RandomGenerator.GenerateArray(10);
-    console.log(array);
-    CocktailSort.sort<number>(array);
-    console.log(array);
+    const str = 'ABABABA';
+    console.log(str);
+    const sufixTree = new SufixTree(str);
+    console.log(sufixTree.print());
+    console.log(sufixTree.freqSubstr());
   }
 }
